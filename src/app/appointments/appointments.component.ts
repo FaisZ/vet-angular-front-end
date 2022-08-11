@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../appointment';
+import { APPOINTMENTS } from '../mock-appointments';
 
 @Component({
   selector: 'app-appointments',
@@ -8,12 +9,18 @@ import { Appointment } from '../appointment';
 })
 export class AppointmentsComponent implements OnInit {
 
-  appointment: Appointment = {
-    id: 1,
-    ownerName: 'Guy',
-    petName: 'Micheel Mancholetti',
-    contactDetails: "123123123",
-    appointmentTime: "3 Nov 2022"
+  appointments = APPOINTMENTS;
+  // appointment: Appointment = {
+  //   id: 1,
+  //   ownerName: 'Guy',
+  //   petName: 'Micheel Mancholetti',
+  //   contactDetails: "123123123",
+  //   appointmentTime: "3 Nov 2022"
+  // }
+
+  selectedAppointment?: Appointment;
+  onSelect(appointment: Appointment): void {
+    this.selectedAppointment = appointment;
   }
   constructor() { }
 
