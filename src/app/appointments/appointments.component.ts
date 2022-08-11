@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Appointment } from '../appointment';
-import { APPOINTMENTS } from '../mock-appointments';
+import { AppointmentService } from '../appointment.service';
 
 @Component({
   selector: 'app-appointments',
@@ -9,22 +9,20 @@ import { APPOINTMENTS } from '../mock-appointments';
 })
 export class AppointmentsComponent implements OnInit {
 
-  appointments = APPOINTMENTS;
-  // appointment: Appointment = {
-  //   id: 1,
-  //   ownerName: 'Guy',
-  //   petName: 'Micheel Mancholetti',
-  //   contactDetails: "123123123",
-  //   appointmentTime: "3 Nov 2022"
-  // }
+  appointments: Appointment[] = [];
 
   selectedAppointment?: Appointment;
   onSelect(appointment: Appointment): void {
     this.selectedAppointment = appointment;
   }
-  constructor() { }
+  constructor(private appointmentService: AppointmentService) { }
 
+  getAppointments(): void {
+    this.appointments = this.appointmentService.getAppointments();
+  }
+  
   ngOnInit(): void {
+    this.getAppointments();
   }
 
 }
