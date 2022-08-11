@@ -12,12 +12,5 @@
             <input id="ownerName" [(ngModel)]="appointment.ownerName" placeholder="ownerName">
         </div> -->
     </li>
-    <div *ngIf="selectedAppointment">
-        <h2>{{selectedAppointment.petName | uppercase}} Details</h2>
-        <div>id: {{selectedAppointment.id}}</div>
-        <div>
-          <label for="hero-name">Pet name: </label>
-          <input id="hero-name" [(ngModel)]="selectedAppointment.petName" placeholder="name">
-        </div>
-      </div>
+    <app-appointment-detail [appointment]="selectedAppointment"></app-appointment-detail>
 </ul>
