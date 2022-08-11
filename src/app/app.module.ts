@@ -7,12 +7,14 @@ import { AppointmentsComponent } from './appointments/appointments.component';
 
 import { FormsModule } from '@angular/forms';
 import { AppointmentDetailComponent } from './appointment-detail/appointment-detail.component';
+import { MessagesComponent } from './messages/messages.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppointmentsComponent,
-    AppointmentDetailComponent
+    AppointmentDetailComponent,
+    MessagesComponent
   ],
   imports: [
     BrowserModule,

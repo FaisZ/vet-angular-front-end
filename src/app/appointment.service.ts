@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Observable, of } from 'rxjs';
+import { MessageService } from './message.service';
+
 import { Appointment } from './appointment';
 import { APPOINTMENTS } from './mock-appointments';
 
@@ -7,9 +10,11 @@ import { APPOINTMENTS } from './mock-appointments';
 })
 export class AppointmentService {
 
-  getAppointments(): Appointment[] {
-    return APPOINTMENTS;
+  getAppointments(): Observable<Appointment[]> {
+    const appointments = of(APPOINTMENTS);
+    this.messageService.add('Appointment Fetched');
+    return appointments;
   }
-  
-  constructor() { }
+
+  constructor(private messageService: MessageService) { }
 }
