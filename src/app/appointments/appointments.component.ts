@@ -29,7 +29,6 @@ export class AppointmentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAppointments();
-    var vah;
     this.http.get<any>('https://localhost:7139/api/appointments',{ observe: 'response' }).subscribe(response => {
       console.log('respones '+response.status);
       // this.totalAngularPackages = data.results[0].package.name;
@@ -39,12 +38,17 @@ export class AppointmentsComponent implements OnInit {
       console.log('errs '+error.statusText);
       console.log('errs '+error.headers);
     });
-    this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular',).subscribe(data => {
+    this.http.get<any>('https://localhost:7139/api/appointments',).subscribe(data => {
       console.log('tes');
       // this.totalAngularPackages = data.results[0].package.name;
-      this.totalAngularPackages = data.results[0].package.name;
+      // this.totalAngularPackages = data.length;
+      for(var i=0; i<data.length; i++){
+        console.log('ownerName '+data[i].ownerName);
+        console.log('petName '+data[i].petName);
+        console.log('contactDetails '+data[i].contactDetails);
+        console.log('appointmentTime '+data[i].appointmentTime);
+      }
     }) 
-    console.log(vah);
   }
 
 }

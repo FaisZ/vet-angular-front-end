@@ -16,33 +16,23 @@ export class AppointmentService {
 
   getAppointments(): Observable<Appointment[]> {
     const appointments = of(APPOINTMENTS);
-    var test = 'ngahaha';
-    var val = this.http.get<any>(this.appointmentUrl).subscribe(
-      data => {
-        test = data.ownerName;
-        console.log(data.ownerName);
-      }
-    );
-    console.log("HEYO");
-    console.log(val);
-    var vah;
-    this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe(data => {
-      vah = data.total;
-    }) 
-    console.log(vah);
-    // console.log(res);
-    // var res2 = val.subscribe(
+    // var test = 'ngahaha';
+    // var val = this.http.get<any>(this.appointmentUrl).subscribe(
     //   data => {
     //     test = data.ownerName;
     //     console.log(data.ownerName);
     //   }
     // );
-    // console.log(res2);
-    // console.log(this.http.get<Appointment[]>(this.appointmentUrl).pipe(map(result => result["ownerName"].toUpperCase())));
-    // this.log('test');
-    // console.log(res);
-    return appointments;
-    // return this.http.get<Appointment[]>(this.appointmentUrl);
+    // console.log("HEYO");
+    // console.log(val);
+    // var vah;
+    // this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe(data => {
+    //   vah = data.total;
+    // }) 
+    // console.log(vah);
+
+    // return appointments;
+    return this.http.get<Appointment[]>(this.appointmentUrl);
   }
 
   private log(message: string) {
