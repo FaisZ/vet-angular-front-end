@@ -59,8 +59,27 @@
     line-height: 1em;
     margin-right: .8em;
     border-radius: 4px 0 0 4px;
+    width: 50px;
+  }
+  
+  .appointments .date {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #405061;
+    line-height: 1em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+    width: 300px;
   }
   
   .appointments .name {
     align-self: center;
+    width: 300px;
+  }
+
+  .appointments .ownerName {
+    align-self: center;
+    width: 300px;
   }
