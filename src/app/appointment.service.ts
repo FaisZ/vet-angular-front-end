@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, of, map } from 'rxjs';
 import { MessageService } from './message.service';
+
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Appointment } from './appointment';
 import { APPOINTMENTS } from './mock-appointments';
@@ -10,11 +12,45 @@ import { APPOINTMENTS } from './mock-appointments';
 })
 export class AppointmentService {
 
+  private appointmentUrl = 'https://localhost:7139/api/appointments';
+
   getAppointments(): Observable<Appointment[]> {
     const appointments = of(APPOINTMENTS);
-    this.messageService.add('Appointment Fetched');
+    var test = 'ngahaha';
+    var val = this.http.get<any>(this.appointmentUrl).subscribe(
+      data => {
+        test = data.ownerName;
+        console.log(data.ownerName);
+      }
+    );
+    console.log("HEYO");
+    console.log(val);
+    var vah;
+    this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe(data => {
+      vah = data.total;
+    }) 
+    console.log(vah);
+    // console.log(res);
+    // var res2 = val.subscribe(
+    //   data => {
+    //     test = data.ownerName;
+    //     console.log(data.ownerName);
+    //   }
+    // );
+    // console.log(res2);
+    // console.log(this.http.get<Appointment[]>(this.appointmentUrl).pipe(map(result => result["ownerName"].toUpperCase())));
+    // this.log('test');
+    // console.log(res);
     return appointments;
+    // return this.http.get<Appointment[]>(this.appointmentUrl);
   }
 
-  constructor(private messageService: MessageService) { }
+  private log(message: string) {
+    this.messageService.add(`AppointmentService: ${message}`);
+  }
+
+  constructor(
+    private messageService: MessageService,
+    private http: HttpClient
+    ) { }
 }

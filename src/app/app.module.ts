@@ -9,6 +9,8 @@ import { FormsModule } from '@angular/forms';
 import { AppointmentDetailComponent } from './appointment-detail/appointment-detail.component';
 import { MessagesComponent } from './messages/messages.component';
 
+import { HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +21,8 @@ import { MessagesComponent } from './messages/messages.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

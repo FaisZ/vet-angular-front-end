@@ -1,4 +1,5 @@
 <ul class="appointments">
+    Total @angular packages: {{totalAngularPackages}}
     <li *ngFor="let appointment of appointments">
         <button type="button" [class.selected]="appointment === selectedAppointment" (click)="onSelect(appointment)">
             <span class="badge">{{appointment.id}}</span>
