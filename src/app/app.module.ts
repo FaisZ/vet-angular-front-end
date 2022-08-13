@@ -10,13 +10,17 @@ import { AppointmentDetailComponent } from './appointment-detail/appointment-det
 import { MessagesComponent } from './messages/messages.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { FiltersComponent } from './filters/filters.component';
+import { PaginationComponent } from './pagination/pagination.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AppointmentsComponent,
     AppointmentDetailComponent,
-    MessagesComponent
+    MessagesComponent,
+    FiltersComponent,
+    PaginationComponent
   ],
   imports: [
     BrowserModule,
