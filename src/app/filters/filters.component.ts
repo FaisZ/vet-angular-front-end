@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppointmentService } from '../appointment.service';
 
 @Component({
   selector: 'app-filters',
@@ -7,7 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FiltersComponent implements OnInit {
 
-  constructor() { }
+  public dateString?: string;
+  public nameString?: string;
+
+  onSearch(): void {
+    this.nameString = 'John';
+    this.appointmentService.search(this.nameString, this.dateString);
+  }
+
+  constructor(private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
   }

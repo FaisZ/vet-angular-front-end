@@ -38,6 +38,16 @@ export class AppointmentService {
     this.dateSearchString=dateSearchString;
   }
 
+  search(nameSearchString?: string, dateSearchString?: string): void{
+    this.nameSearchString = '';
+    this.dateSearchString = '';
+    if(nameSearchString)
+      this.nameSearchString=nameSearchString;
+    if(dateSearchString)
+      this.dateSearchString=dateSearchString;
+    this.appointmentChange.next(this.getAppointments());
+  }
+
   setPageSize(pageSize: number): void{
     this.pageSize=pageSize;
   }
