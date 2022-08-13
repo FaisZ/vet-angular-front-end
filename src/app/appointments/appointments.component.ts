@@ -29,7 +29,8 @@ export class AppointmentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAppointments();
-    //test purposes 
+
+    //just for test purposes 
     // this.http.get<any>('https://localhost:7139/api/appointments',{ observe: 'response' }).subscribe(response => {
     //   console.log('respones '+response.status);
     //   // this.totalAngularPackages = data.results[0].package.name;

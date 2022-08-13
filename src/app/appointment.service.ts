@@ -15,7 +15,7 @@ export class AppointmentService {
   private appointmentUrl = 'https://localhost:7139/api/appointments';
   private pageNumber = 1;
   private pageSize = 10;
-  private nameSearchString = 'John';
+  private nameSearchString = '';
   private dateSearchString = '';
 
   getAppointments(): Observable<Appointment[]> {
@@ -26,6 +26,30 @@ export class AppointmentService {
     if(this.dateSearchString!='')
       url += '&date='+this.dateSearchString;
     return this.http.get<Appointment[]>(url);
+  }
+
+  setNameSearchString(nameSearchString: string): void{
+    this.nameSearchString=nameSearchString;
+  }
+
+  setDateSearchString(dateSearchString: string): void{
+    this.dateSearchString=dateSearchString;
+  }
+
+  setPageSize(pageSize: number): void{
+    this.pageSize=pageSize;
+  }
+
+  nextPage(): void{
+    this.pageNumber++;
+    this.getAppointments();
+  }
+
+  prevPage(): void{
+    if(this.pageNumber>1){
+      this.pageNumber--;
+      this.getAppointments();
+    }
   }
 
   private log(message: string) {
