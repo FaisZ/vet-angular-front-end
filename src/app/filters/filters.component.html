@@ -1,10 +1,7 @@
-<p>pagination works!</p>
-<button type="button">
-    Date Selector
-</button>
-<button type="button">
-    Pet Name Selector
-</button>
+<label for="hero-name">Search Appointment Date: </label>
+<input [(ngModel)]="dateString" type="date" placeholder="date">
+<label for="hero-name">Search Pet Name: </label>
+<input [(ngModel)]="nameString" placeholder="pet name">
 <button type="button" (click)="onSearch()">
     Search
 </button>

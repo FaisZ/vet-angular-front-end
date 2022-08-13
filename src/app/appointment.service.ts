@@ -27,6 +27,7 @@ export class AppointmentService {
       url += '&name='+this.nameSearchString;
     if(this.dateSearchString!='')
       url += '&date='+this.dateSearchString;
+      console.log('final url: '+url);
     return this.http.get<Appointment[]>(url);
   }
 

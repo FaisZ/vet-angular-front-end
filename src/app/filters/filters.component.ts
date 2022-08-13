@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { AppointmentService } from '../appointment.service';
 
 @Component({
@@ -8,11 +8,12 @@ import { AppointmentService } from '../appointment.service';
 })
 export class FiltersComponent implements OnInit {
 
-  public dateString?: string;
-  public nameString?: string;
+  @Input() dateString?: string;
+  @Input() nameString?: string;
 
   onSearch(): void {
-    this.nameString = 'John';
+    // this.nameString = 'John';
+    console.log('date: '+this.dateString);
     this.appointmentService.search(this.nameString, this.dateString);
   }
 

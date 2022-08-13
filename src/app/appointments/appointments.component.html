@@ -10,7 +10,7 @@
     <li *ngFor="let appointment of appointments">
         <button type="button" [class.selected]="appointment === selectedAppointment" (click)="onSelect(appointment)">
             <span class="badge">{{appointment.id}}</span>
-            <span class="date">{{appointment.appointmentTime | date:'MM/dd/yyyy'}}</span>
+            <span class="date">{{appointment.appointmentTime}}</span>
             <span class="name">{{appointment.petName}}</span>
             <span class="ownerName">{{appointment.ownerName}}</span>
             <span class="name">{{appointment.contactDetails}}</span>
