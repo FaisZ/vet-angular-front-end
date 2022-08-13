@@ -12,8 +12,6 @@ export class FiltersComponent implements OnInit {
   @Input() nameString?: string;
 
   onSearch(): void {
-    // this.nameString = 'John';
-    console.log('date: '+this.dateString);
     this.appointmentService.search(this.nameString, this.dateString);
   }
 

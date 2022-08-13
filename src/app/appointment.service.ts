@@ -31,14 +31,6 @@ export class AppointmentService {
     return this.http.get<Appointment[]>(url);
   }
 
-  setNameSearchString(nameSearchString: string): void{
-    this.nameSearchString=nameSearchString;
-  }
-
-  setDateSearchString(dateSearchString: string): void{
-    this.dateSearchString=dateSearchString;
-  }
-
   search(nameSearchString?: string, dateSearchString?: string): void{
     this.nameSearchString = '';
     this.dateSearchString = '';
@@ -51,6 +43,7 @@ export class AppointmentService {
 
   setPageSize(pageSize: number): void{
     this.pageSize=pageSize;
+    this.appointmentChange.next(this.getAppointments());
   }
 
   nextPage(): void{

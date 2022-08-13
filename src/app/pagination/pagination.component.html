@@ -1,7 +1,16 @@
-<p>pagination works!</p>
 <button type="button" (click)="onSelect(0)">
     Prev Page
 </button>
 <button type="button" (click)="onSelect(1)">
     Next Page
 </button>
+<label for="rowsPerPage">Rows per page:</label>
+
+<select name="rowsPerPage" id="rowsPerPage" [(ngModel)]="rowsPerPage" (change)="rowsPerPageChanged()">
+  <option [ngValue]=10>10</option>
+  <option [ngValue]=20>20</option>
+  <option [ngValue]=50>50</option>
+  <option [ngValue]=100>100</option>
+</select>
+
+<!-- <input [(ngModel)]="dateString" type="date" placeholder="date"> -->
