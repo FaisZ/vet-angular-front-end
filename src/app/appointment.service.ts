@@ -13,26 +13,19 @@ import { APPOINTMENTS } from './mock-appointments';
 export class AppointmentService {
 
   private appointmentUrl = 'https://localhost:7139/api/appointments';
+  private pageNumber = 1;
+  private pageSize = 10;
+  private nameSearchString = 'John';
+  private dateSearchString = '';
 
   getAppointments(): Observable<Appointment[]> {
     const appointments = of(APPOINTMENTS);
-    // var test = 'ngahaha';
-    // var val = this.http.get<any>(this.appointmentUrl).subscribe(
-    //   data => {
-    //     test = data.ownerName;
-    //     console.log(data.ownerName);
-    //   }
-    // );
-    // console.log("HEYO");
-    // console.log(val);
-    // var vah;
-    // this.http.get<any>('https://api.npms.io/v2/search?q=scope:angular').subscribe(data => {
-    //   vah = data.total;
-    // }) 
-    // console.log(vah);
-
-    // return appointments;
-    return this.http.get<Appointment[]>(this.appointmentUrl);
+    var url = this.appointmentUrl+'?pageNumber='+this.pageNumber+'&pageSize='+this.pageSize;
+    if(this.nameSearchString!='')
+      url += '&name='+this.nameSearchString;
+    if(this.dateSearchString!='')
+      url += '&date='+this.dateSearchString;
+    return this.http.get<Appointment[]>(url);
   }
 
   private log(message: string) {
