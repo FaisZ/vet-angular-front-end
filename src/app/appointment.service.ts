@@ -18,7 +18,7 @@ export class AppointmentService {
   private nameSearchString = '';
   private dateSearchString = '';
 
-  appointmentChange: Subject<Observable<Appointment[]>> = new Subject<Observable<Appointment[]>>();
+  appointmentChange: Subject<void> = new Subject();
   
   getAppointments(): Observable<Appointment[]> {
     const appointments = of(APPOINTMENTS);
@@ -38,24 +38,33 @@ export class AppointmentService {
       this.nameSearchString=nameSearchString;
     if(dateSearchString)
       this.dateSearchString=dateSearchString;
-    this.appointmentChange.next(this.getAppointments());
+    this.appointmentChange.next();
   }
 
   setPageSize(pageSize: number): void{
     this.pageSize=pageSize;
-    this.appointmentChange.next(this.getAppointments());
+    //reset page to first page
+    this.pageNumber = 1;
+    this.appointmentChange.next();
   }
 
-  nextPage(): void{
-    this.pageNumber++;
-    this.appointmentChange.next(this.getAppointments());
-  }
-
-  prevPage(): void{
-    if(this.pageNumber>1){
-      this.pageNumber--;
-      this.appointmentChange.next(this.getAppointments());
+  changePage(buttonId: number): number {
+    //button ids: 0= first page, 1=prev page, 2=next page, 3=last page(WIP)
+    if(buttonId==0){
+        this.pageNumber = 1;
     }
+    else if(buttonId==1){
+      //checks whether it's not in 1st page already
+      if(this.pageNumber>1){
+        this.pageNumber--;
+      }
+    }
+    else{
+      //TODO: add checks when on last page
+      this.pageNumber++;
+    }
+    this.appointmentChange.next();
+    return this.pageNumber;
   }
 
   private log(message: string) {

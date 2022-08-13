@@ -9,12 +9,11 @@ import { AppointmentService } from '../appointment.service';
 export class PaginationComponent implements OnInit {
 
   rowsPerPage: number;
+  pageNumber: number;
 
   onSelect(buttonId: number): void {
-    if(buttonId==0)
-      this.appointmentService.prevPage();
-    else
-      this.appointmentService.nextPage();
+    //button ids: 0= first page, 1=prev page, 2=next page, 3=last page(WIP)
+    this.pageNumber = this.appointmentService.changePage(buttonId);
   }
 
   rowsPerPageChanged(): void {
@@ -24,6 +23,7 @@ export class PaginationComponent implements OnInit {
 
   constructor(private appointmentService: AppointmentService) { 
     this.rowsPerPage = 10;
+    this.pageNumber = 1;
   }
 
   ngOnInit(): void {
