@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppointmentService } from '../appointment.service';
 
 @Component({
   selector: 'app-pagination',
@@ -7,7 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PaginationComponent implements OnInit {
 
-  constructor() { }
+  onSelect(buttonId: number): void {
+    if(buttonId==0)
+      this.appointmentService.prevPage();
+    else
+      this.appointmentService.nextPage();
+  }
+
+  constructor(private appointmentService: AppointmentService) { }
 
   ngOnInit(): void {
   }

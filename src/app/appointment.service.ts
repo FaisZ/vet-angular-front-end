@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable, of, map } from 'rxjs';
+import { Observable, of, map, Subject } from 'rxjs';
 import { MessageService } from './message.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -18,6 +18,8 @@ export class AppointmentService {
   private nameSearchString = '';
   private dateSearchString = '';
 
+  appointmentChange: Subject<Observable<Appointment[]>> = new Subject<Observable<Appointment[]>>();
+  
   getAppointments(): Observable<Appointment[]> {
     const appointments = of(APPOINTMENTS);
     var url = this.appointmentUrl+'?pageNumber='+this.pageNumber+'&pageSize='+this.pageSize;
@@ -42,13 +44,13 @@ export class AppointmentService {
 
   nextPage(): void{
     this.pageNumber++;
-    this.getAppointments();
+    this.appointmentChange.next(this.getAppointments());
   }
 
   prevPage(): void{
     if(this.pageNumber>1){
       this.pageNumber--;
-      this.getAppointments();
+      this.appointmentChange.next(this.getAppointments());
     }
   }
 
