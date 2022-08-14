@@ -1,7 +1,16 @@
-<label for="hero-name">Search Appointment Date: </label>
-<input [(ngModel)]="dateString" type="date" placeholder="date">
-<label for="hero-name">Search Pet Name: </label>
-<input [(ngModel)]="nameString" placeholder="pet name">
-<button type="button" (click)="onSearch()">
-    Search
-</button>
+
+
+<div class="container">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <div class="d-flex">
+                <input class="form-control me-2" [(ngModel)]="dateString" type="date" placeholder="Search Date">
+                <input class="form-control me-2" [(ngModel)]="nameString" type="search" placeholder="Search Pet Name">
+                <button class="btn btn-outline-success" type="button" (click)="onSearch()">Search</button>
+            </div>
+        </div>
+    </div>
+    </nav>
+</div>
