@@ -18,7 +18,10 @@ export class AppointmentService {
   private nameSearchString = '';
   private dateSearchString = '';
 
+  //sub to detect if appointment list should reload
   appointmentChange: Subject<void> = new Subject();
+  //sub to detect if page information should reset
+  pageReset: Subject<void> = new Subject();
   
   getAppointments(): Observable<Appointment[]> {
     const appointments = of(APPOINTMENTS);
@@ -38,6 +41,9 @@ export class AppointmentService {
       this.nameSearchString=nameSearchString;
     if(dateSearchString)
       this.dateSearchString=dateSearchString;
+    //reset page to first page
+    this.pageNumber = 1;
+    this.pageReset.next();
     this.appointmentChange.next();
   }
 
@@ -45,6 +51,7 @@ export class AppointmentService {
     this.pageSize=pageSize;
     //reset page to first page
     this.pageNumber = 1;
+    this.pageReset.next();
     this.appointmentChange.next();
   }
 

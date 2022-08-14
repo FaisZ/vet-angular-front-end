@@ -33,8 +33,6 @@ export class AppointmentsComponent implements OnInit {
 
   getAppointments(): void {
     this.appointmentService.getAppointments().subscribe(appointments => this.appointments = appointments);
-
-    // this.appointments = this.appointmentService.getAppointments();
   }
 
   ngOnInit(): void {

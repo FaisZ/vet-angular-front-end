@@ -18,12 +18,16 @@ export class PaginationComponent implements OnInit {
 
   rowsPerPageChanged(): void {
     console.log('row: '+this.rowsPerPage);
+    this.pageNumber = 1;
     this.appointmentService.setPageSize(this.rowsPerPage);
   }
 
   constructor(private appointmentService: AppointmentService) { 
     this.rowsPerPage = 10;
     this.pageNumber = 1;
+    this.appointmentService.pageReset.subscribe(() => {
+      this.pageNumber = 1;
+    })
   }
 
   ngOnInit(): void {
