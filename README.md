@@ -6,22 +6,23 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Code scaffolding
+![Alt text](https://github.com/FaisZ/vet-angular-front-end/blob/19610bbea9a1deeb9e6f8ac75090494e99ebd7fa/Images/App1.png)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## WEB API
 
-## Build
+By default the API host is `7139`, but it can be changed from the file `appointment.service.ts`.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![Alt text](https://github.com/FaisZ/vet-angular-front-end/blob/19610bbea9a1deeb9e6f8ac75090494e99ebd7fa/Images/defaultAPIUrl.png)
 
-## Running unit tests
+## Features
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The list can be filtered by entering the pet name and clicking the search button.
 
-## Running end-to-end tests
+![Alt text](https://github.com/FaisZ/vet-angular-front-end/blob/19610bbea9a1deeb9e6f8ac75090494e99ebd7fa/Images/App2.png)
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The list can also be filtered by entering a date and clicking the search button. Both filters can be combined accordingly.
 
-## Further help
+![Alt text](https://github.com/FaisZ/vet-angular-front-end/blob/19610bbea9a1deeb9e6f8ac75090494e99ebd7fa/Images/App3.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![Alt text](https://github.com/FaisZ/vet-angular-front-end/blob/19610bbea9a1deeb9e6f8ac75090494e99ebd7fa/Images/App4.png)
+
