@@ -1,27 +1,42 @@
-<ul class="appointments">
-    <!-- Total @angular packages: {{totalAngularPackages}} -->
+<!-- <ul class="appointments">
     <button type="button">
-        <span class="badge">No.</span>
         <span class="date">Date</span>
         <span class="name">Pet Name</span>
         <span class="ownerName">Owner Name</span>
         <span class="name">Contact Details</span>
     </button>
     <li *ngFor="let appointment of appointments">
-        <button type="button" [class.selected]="appointment === selectedAppointment" (click)="onSelect(appointment)">
-            <span class="badge">{{appointment.id}}</span>
+        <button type="button" [class.selected]="appointment === selectedAppointment">
             <span class="date">{{appointment.appointmentTime}}</span>
             <span class="name">{{appointment.petName}}</span>
             <span class="ownerName">{{appointment.ownerName}}</span>
             <span class="name">{{appointment.contactDetails}}</span>
-            <!-- <div><span>Owner: </span>{{appointment.ownerName}}</div>
-            <div><span>Contact Details: </span>{{appointment.contactDetails}}</div>
-            <div><span>Appointment: </span>{{appointment.appointmentTime}}</div> -->
         </button>
-        <!-- <div>
-            <label for="ownerName">Owner name: </label>
-            <input id="ownerName" [(ngModel)]="appointment.ownerName" placeholder="ownerName">
-        </div> -->
     </li>
     <app-appointment-detail [appointment]="selectedAppointment"></app-appointment-detail>
 </ul>
+ -->
+<div class="container">
+    <h2>Table</h2>
+    <div class="table-responsive">          
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Pet Name</th>
+          <th>Owner Name</th>
+          <th>Contact Details</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let appointment of appointments">
+        <tr>
+            <td>{{appointment.appointmentTime}}</td>
+            <td>{{appointment.petName}}</td>
+            <td>{{appointment.ownerName}}</td>
+            <td>{{appointment.contactDetails}}</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+</div>
+  

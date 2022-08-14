@@ -1,0 +1,36 @@
+button {
+    background-color: #eee;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    color: black;
+    font-size: 1.2rem;
+    padding: 0.3rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+  }
+  button:hover {
+    background-color: black;
+    color: white;
+  }
+
+  input {
+    font-size: 1.2rem;
+    padding: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: 1%;
+    margin-bottom: 1%;
+    margin-top: 1%;
+  }
+
+  label {
+    font-size: 1.2rem;
+    padding: 0.1rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-right: 1%;
+  }
